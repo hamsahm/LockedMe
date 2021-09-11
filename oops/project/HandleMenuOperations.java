@@ -18,7 +18,11 @@ public class HandleMenuOperations {
 			case "1":
 				FileOperations.displayListOfFiles();
 				break;
-				
+
+			case "2":
+				FileOperations.displayOptionsForUserInterface(sc);
+				break;
+
 			default:
 				break;
 			}
