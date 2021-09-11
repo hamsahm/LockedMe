@@ -7,14 +7,24 @@ public class HandleMenuOperations {
 	public static void handleUserSelectedOperation() {
 		System.out.println("Please enter the required option here");
 		Scanner sc = new Scanner(System.in);
-		
+
 		String operationEntered;
-		
-		operationEntered = sc.next();
-		sc.close();
-		
+
+		while (true) {
+
+			operationEntered = sc.next();
+			switch (operationEntered) {
+
+			case "1":
+				FileOperations.displayListOfFiles();
+				break;
+				
+			default:
+				break;
+			}
+
+		}
+
 	}
-	
-	
 
 }
