@@ -40,6 +40,12 @@ public class FileOperations {
 				createFile(fileName);
 				break;
 
+			case "2":
+				System.out.println("Enter the file name :");
+				fileName = sc.next();
+				deleteFile(fileName);
+				break;
+
 			}
 		}
 
@@ -63,4 +69,21 @@ public class FileOperations {
 		System.out.println("The file " + fileName + " is successfully created.");
 
 	}
+
+	private static void deleteFile(String fileName) {
+
+		File file = new File(userDir + "\\src\\" + folderName + "\\" + fileName + ".txt");
+		boolean isFileDeleted = false;
+		if (file.exists()) {
+			isFileDeleted = file.delete();
+		}
+
+		if (isFileDeleted) {
+			System.out.println("The file " + fileName + " is successfully deleted.");
+		} else {
+			System.out.println("The specified file" + fileName + " doesn't exists.");
+		}
+
+	}
+
 }
