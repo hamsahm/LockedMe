@@ -23,6 +23,8 @@ public class HandleMenuOperations {
 				FileOperations.displayOptionsForUserInterface(sc);
 				break;
 
+			case "3":
+				System.exit(0);
 			}
 
 		}

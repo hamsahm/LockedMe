@@ -48,6 +48,11 @@ public class FileOperations {
 				searchFile(fileName);
 				break;
 
+			case "4":
+				break;
+
+			case "5":
+				System.exit(0);
 			}
 		}
 
