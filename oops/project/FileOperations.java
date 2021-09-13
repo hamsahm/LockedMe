@@ -21,16 +21,12 @@ public class FileOperations {
 	}
 
 	public static void displayOptionsForUserInterface(Scanner sc) {
-		System.out.println("1. Add a file to the folder (files_for_project).");
-		System.out.println("2. Delete a file from the folder (files_for_project).");
-		System.out.println("3. Search a from the folder (files_for_project).");
-		System.out.println("4. Exit to Main menu");
-		System.out.println("5. Exit Program");
+		DisplayMenuOptions.printOptionsForUserOperations();
 
-		System.out.println("Enter the required operation: ");
 		String selectedOperation;
 
 		while (true) {
+			System.out.println("Enter the required operation: ");
 			selectedOperation = sc.next();
 
 			switch (selectedOperation) {
@@ -46,6 +42,11 @@ public class FileOperations {
 				deleteFile(fileName);
 				break;
 
+			case "3":
+				System.out.println("Enter the file name :");
+				fileName = sc.next();
+				searchFile(fileName);
+				break;
 
 			}
 		}
@@ -83,6 +84,26 @@ public class FileOperations {
 			System.out.println("The file " + fileName + " is successfully deleted.");
 		} else {
 			System.out.println("The specified file" + fileName + " doesn't exists.");
+		}
+
+	}
+
+	private static void searchFile(String fileName) {
+
+		File folder = new File(userDir + "\\src\\" + folderName);
+
+		if (!folder.exists()) {
+			System.out.println("The folder doesn't exists");
+		} else {
+			for (String file : folder.list()) {
+				if (file.equalsIgnoreCase(fileName)) {
+					System.out.println("The specified file exists in the folder.");
+					break;
+				} else {
+					System.out.println("The specified file doesn't exists in the folder.");
+				}
+
+			}
 		}
 
 	}

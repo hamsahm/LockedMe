@@ -23,4 +23,13 @@ public class DisplayMenuOptions {
 
 	}
 
+	public static void printOptionsForUserOperations() {
+		System.out.println("1. Add a file to the folder (files_for_project).");
+		System.out.println("2. Delete a file from the folder (files_for_project).");
+		System.out.println("3. Search a from the folder (files_for_project).");
+		System.out.println("4. Exit to Main menu");
+		System.out.println("5. Exit Program");
+
+	}
+
 }

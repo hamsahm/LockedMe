@@ -23,8 +23,6 @@ public class HandleMenuOperations {
 				FileOperations.displayOptionsForUserInterface(sc);
 				break;
 
-			default:
-				break;
 			}
 
 		}
