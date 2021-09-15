@@ -5,13 +5,14 @@ import java.util.Scanner;
 public class HandleMenuOperations {
 
 	public static void handleUserSelectedOperation() {
-		System.out.println("Please enter the required option here");
+
 		Scanner sc = new Scanner(System.in);
 
 		String operationEntered;
 
 		while (true) {
 
+			System.out.println("Please enter the required option here in Main menu: ");
 			operationEntered = sc.next();
 			switch (operationEntered) {
 
@@ -26,9 +27,7 @@ public class HandleMenuOperations {
 			case "3":
 				System.exit(0);
 			}
-
 		}
 
 	}
-
 }

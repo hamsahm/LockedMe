@@ -15,17 +15,16 @@ public class FileOperations {
 		System.out.println("The List Of Files can be found below: ");
 		for (String file : folder.list()) {
 			System.out.println(file);
-
 		}
-
 	}
 
 	public static void displayOptionsForUserInterface(Scanner sc) {
 		DisplayMenuOptions.printOptionsForUserOperations();
-
 		String selectedOperation;
 
-		while (true) {
+		boolean returnToMainMenu = false;
+		while (!returnToMainMenu) {
+
 			System.out.println("Enter the required operation: ");
 			selectedOperation = sc.next();
 
@@ -49,13 +48,12 @@ public class FileOperations {
 				break;
 
 			case "4":
-				break;
-
+				returnToMainMenu = true;
+				return;
 			case "5":
 				System.exit(0);
 			}
 		}
-
 	}
 
 	private static void createFile(String fileName) {
@@ -84,13 +82,11 @@ public class FileOperations {
 		if (file.exists()) {
 			isFileDeleted = file.delete();
 		}
-
 		if (isFileDeleted) {
 			System.out.println("The file " + fileName + " is successfully deleted.");
 		} else {
 			System.out.println("The specified file" + fileName + " doesn't exists.");
 		}
-
 	}
 
 	private static void searchFile(String fileName) {
@@ -100,15 +96,19 @@ public class FileOperations {
 		if (!folder.exists()) {
 			System.out.println("The folder doesn't exists");
 		} else {
+			boolean isPresent = false;
 			for (String file : folder.list()) {
 				if (file.equalsIgnoreCase(fileName)) {
-					System.out.println("The specified file exists in the folder.");
+					isPresent = true;
 					break;
-				} else {
-					System.out.println("The specified file doesn't exists in the folder.");
 				}
-
 			}
+
+			if (isPresent)
+				System.out.println("The specified file exists in the folder.");
+			else
+				System.out.println("The specified file doesn't exists in the folder.");
+
 		}
 
 	}
